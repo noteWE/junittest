@@ -20,7 +20,7 @@ public class B implements IB {
         return stringBuilder.toString();
     }
 
-    public String getException(String str) {
+    public String randString(String str) {
         throw new IllegalArgumentException("Something was happen");
     }
 }

@@ -13,6 +13,10 @@ public class A {
         this.cl = cl;
     }
 
+    public void setCl(B cl) {
+        this.cl = cl;
+    }
+
     public String stringUnaryAction(String str, String action) {
 
         if (str == null || action == null) {
@@ -39,14 +43,18 @@ public class A {
             return returned;
         }
 
-        if (action == "repeat") {
-            returned = cl.repeatString(str, number);
-        }
-        if (action == "first") {
-            returned = str.substring(0, number);
-        }
-        if (action == "last") {
-            returned = str.substring(number);
+        switch (action) {
+            case "repeat":
+                returned = cl.repeatString(str, number);
+                break;
+            case "first":
+                returned = str.substring(0, number);
+                break;
+            case "last":
+                returned = str.substring(number);
+                break;
+            default:
+                returned = cl.randString(str);
         }
         return returned;
     }
